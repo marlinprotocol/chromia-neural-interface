@@ -86,8 +86,8 @@ erDiagram
 ## How to Run
 
 ### Prerequisites
-- Install [Docker]([https://docs.docker.com/engine/install/ubuntu/])
-- Fetch [Groq API key]([https://console.groq.com/keys])
+- Install [Docker](https://docs.docker.com/engine/install/ubuntu/)
+- Fetch [Groq API key](https://console.groq.com/keys)
 
 ### Steps
 1. Install dependencies and setup
