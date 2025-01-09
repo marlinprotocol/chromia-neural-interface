@@ -86,7 +86,8 @@ erDiagram
 ## How to Run
 
 ### Prerequisites
-- Install [Docker]([https://bun.sh/](https://docs.docker.com/engine/install/ubuntu/))
+- Install [Docker]([https://docs.docker.com/engine/install/ubuntu/])
+- Fetch [Groq API key]([https://console.groq.com/keys])
 
 ### Steps
 1. Install dependencies and setup
@@ -95,7 +96,7 @@ erDiagram
    ```
    Update `XAI_API_KEY` in `.env`.
 
-2. Start bun dev server
+2. Start bun dev server (in a new terminal)
    ```sh
    bash start.sh
    ```
