@@ -24,7 +24,7 @@ This repository demonstrates using Chromia to store AI Agent short-term and long
     npm run start
     ```
 
-3. Navigate to http://host-machine-ip:6060 and start bun dev server
+3. Navigate to http://host-machine-ip-or-localhost:6060 and start bun dev server
    ```sh
    bash start.sh
    ```
