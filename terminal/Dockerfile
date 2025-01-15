@@ -19,7 +19,11 @@ COPY package.json package.json
 RUN npm install
 
 # Copy the source files
-COPY . .
+COPY ./src/client.js /app/terminal/src
+COPY ./src/server.js /app/terminal/src
+COPY ./src/terminal.js /app/terminal/src
+COPY ./index.html /app/terminal/src
+COPY start.sh /app/terminal
 
 # Expose port 6060
 EXPOSE 6060
