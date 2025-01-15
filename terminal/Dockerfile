@@ -1,28 +1,26 @@
-# Dockerfile for frontend
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
-# Set environment variables to avoid prompts
-ENV DEBIAN_FRONTEND=noninteractive
+# Copy files
+COPY ./ /app
 
-# Install nodejs and npm
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    nodejs \
-    npm 
+#Change Workdir
+WORKDIR /app
 
-# Set working directory
-WORKDIR /app/terminal
 
-# Copy the package files
-COPY package.json package.json
+RUN apt-get update && apt-get install -y wget build-essential && apt-get clean
 
+# Install Node dependencies.
+RUN wget https://nodejs.org/dist/v18.17.0/node-v18.17.0-linux-x64.tar.xz \
+    && mkdir -p /node && tar -xf node-v18.17.0-linux-x64.tar.xz -C /node \
+    && chmod +x -R /node/node-v18.17.0-linux-x64
+
+# Setup Path
+ENV PATH="/node/node-v18.17.0-linux-x64/bin:${PATH}"
+RUN npm --version
+RUN node --version 
 RUN npm install
 
-# Copy the source files
-COPY . .
-
-# Expose port 6060
 EXPOSE 6060
 
-# Command to run the terminal server
-CMD ["npm", "run", "start"]
+#Start App
+ENTRYPOINT [ "node", "./src/server.js" ]

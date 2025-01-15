@@ -18,12 +18,12 @@ services:
     build: 
       context: ./terminal
       dockerfile: Dockerfile
-    volumes:
-      - ./terminal:/app/terminal
+    # volumes:
+    #   - ./terminal:/app/terminal
     ports:
       - '6060:6060'
-    networks: 
-      - app-network
+    # networks: 
+    #   - app-network
 
   # Postgres service
   postgres:
