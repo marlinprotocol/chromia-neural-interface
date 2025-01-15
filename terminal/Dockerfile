@@ -22,7 +22,7 @@ RUN npm install
 COPY ./src/client.js /app/terminal/src
 COPY ./src/server.js /app/terminal/src
 COPY ./src/terminal.js /app/terminal/src
-COPY ./index.html /app/terminal/src
+COPY ./src/index.html /app/terminal/src
 COPY start.sh /app/terminal
 
 # Expose port 6060
