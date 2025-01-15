@@ -1,5 +1,5 @@
 # Dockerfile for frontend
-FROM nginx:alpine
+FROM ubuntu:20.04
 
 # Install nodejs and npm
 RUN apt-get update && apt-get install -y nodejs npm
