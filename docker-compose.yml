@@ -12,6 +12,18 @@ services:
       - '80:80'
     networks:
       - app-network
+    
+  # terminal service
+  terminal:
+    build: 
+      context: ./terminal
+      dockerfile: Dockerfile
+    volumes:
+      - ./terminal:/usr/share/nginx/html
+    ports:
+      - '6060:6060'
+    networks:
+      - app-network
 
   # Postgres service
   postgres:
