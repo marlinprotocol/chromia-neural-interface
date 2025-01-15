@@ -5,15 +5,19 @@ FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Install nodejs and npm
-RUN apt-get update && apt-get install -y --no-install-recommends nodejs npm
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    nodejs \
+    npm 
 
 # Set working directory
 WORKDIR /app/terminal
 
-# Copy the rest of the application
-COPY . .
+# Copy the package files
+COPY package.json package.json
 
 RUN npm install
+
+# Copy the source files
 
 # Expose port 6060
 EXPOSE 6060
