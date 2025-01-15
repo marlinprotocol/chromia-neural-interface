@@ -6,6 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Install nodejs and npm
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
     nodejs \
     npm 
 
