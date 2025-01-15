@@ -5,7 +5,7 @@ FROM ubuntu:20.04
 RUN apt-get update && apt-get install -y nodejs npm
 
 # Set working directory
-WORKDIR /app
+WORKDIR /app/terminal
 
 # Copy the rest of the application
 COPY . .
