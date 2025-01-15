@@ -18,12 +18,9 @@ services:
     build: 
       context: ./terminal
       dockerfile: Dockerfile
-    volumes:
-      - ./terminal:/usr/share/nginx/html
     ports:
       - '6060:6060'
-    networks:
-      - app-network
+    tty: true
 
   # Postgres service
   postgres:

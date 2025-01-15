@@ -19,6 +19,7 @@ COPY package.json package.json
 RUN npm install
 
 # Copy the source files
+COPY . .
 
 # Expose port 6060
 EXPOSE 6060
