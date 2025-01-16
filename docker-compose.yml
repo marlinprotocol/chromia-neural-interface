@@ -81,15 +81,15 @@ services:
   #   ports:
   #     - '3000:3000'
 
-  bun-server: 
-    image: chromia-neural-interface_chr-node:latest
-    container_name: bun-dev-server
-    depends_on:
-      - chr-node
-    # restart: no
-    stdin_open: true
-    tty: true
-    entrypoint: ["bash", "-c", "bun run dev"]
+  # bun-server: 
+  #   image: chromia-neural-interface_chr-node:latest
+  #   container_name: bun-dev-server
+  #   depends_on:
+  #     - chr-node
+  #   # restart: no
+  #   stdin_open: true
+  #   tty: true
+  #   entrypoint: ["bash", "-c", "bun run dev"]
 
 # Volumes and networks
 volumes:
