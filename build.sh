@@ -7,7 +7,7 @@ docker rmi -f $(docker images -a -q)
 docker system prune -f
 
 # load docker images
-docker load < ./ui/chromia-frontend.tar
+#docker load < ./ui/chromia-frontend.tar
 docker load < ./chromia-node.tar
 
 # build using the docker-compose file

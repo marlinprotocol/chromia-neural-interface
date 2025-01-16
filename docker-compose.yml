@@ -2,14 +2,14 @@ version: '3.7'
 
 services:
   # Frontend service
-  frontend:
-    image: chromia-frontend
-    volumes:
-      - ./ui:/usr/share/nginx/html
-    ports:
-      - '80:80'
-    networks:
-      - app-network
+  #  frontend:
+    #    image: chromia-frontend
+      #    volumes:
+      #      - ./ui:/usr/share/nginx/html
+        #    ports:
+      #      - '80:80'
+        #    networks:
+      #      - app-network
 
   # Postgres service
   postgres:
