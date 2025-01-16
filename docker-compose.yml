@@ -46,19 +46,22 @@ services:
       - ./chromia.yml:/app/chromia.yml
 
   # bun dev server
-  bun-server: 
-    image: chromia-node
-    container_name: bun-dev-server
-    depends_on:
-      - chr-node
-    restart: "no"
-    networks:
-      - app-network
-    ports:
-      - 3000:3000
-    stdin_open: true
-    tty: true
-    entrypoint: ["bash", "-c", "bun run dev"]
+  #  bun-server: 
+    #    image: chromia-node
+      #    container_name: bun-dev-server
+      #    depends_on:
+      #      - chr-node
+        #    environment:
+      #      - XAI_API_KEY=${XAI_API_KEY}
+        #      - CHR_NODE_API_URL=http://chr-node:9870
+        #    restart: "no"
+      #    networks:
+      #      - app-network
+        #    ports:
+      #      - 3000:3000
+        #    stdin_open: true
+      #    tty: true
+      #    entrypoint: ["bash", "-c", "sleep 20 && docker exec -it chromia-neural-interface_chr-node_1 sh -c 'bun run dev'"]
 
 # Volumes and networks
 volumes:
