@@ -1,17 +1,17 @@
 version: '3.7'
 
 services:
-  # Frontend service
-  frontend:
-    build:
-      context: ./ui
-      dockerfile: Dockerfile
-    volumes:
-      - ./ui:/usr/share/nginx/html
-    ports:
-      - '80:80'
-    networks:
-      - app-network
+  # # Frontend service
+  # frontend:
+  #   build:
+  #     context: ./ui
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - ./ui:/usr/share/nginx/html
+  #   ports:
+  #     - '80:80'
+  #   networks:
+  #     - app-network
     
   # terminal service
   terminal:
