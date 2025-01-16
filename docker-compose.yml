@@ -33,6 +33,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.chr-node
+    container_name: my-chr-node
     networks:
       - app-network
     depends_on:
@@ -47,14 +48,46 @@ services:
       retries: 5
     volumes:
       - ./chromia.yml:/app/chromia.yml
-  
-  # terminal service
-  terminal:
-    build: 
-      context: ./terminal
-      dockerfile: Dockerfile
-    ports:
-      - '6060:6060'
+
+  # node-10:
+  #     build: ./terminal
+  #     volumes:
+  #       - ./terminal:/usr/src/app
+  #     container_name: Checker10
+  #     restart: always
+  #     ports:
+  #       - 6060:6060
+  #     # command: bash -c /usr/src/app/start.sh
+  # bun:
+  #   build: .
+  #   container_name: bun-dev
+  #   restart: always
+  #   ports:
+  #     - 3000:3000
+  #   command: bash -c docker exec -it chromia-neural-interface_chr-node_1 sh -c "bun run dev"
+
+  # bun-dev:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.bun
+  #   restart: always
+  #   environment:
+  #     - XAI_API_KEY=${XAI_API_KEY}
+  #     - CHR_NODE_API_URL=http://chr-node:9870
+  #   depends_on: 
+  #     - chr-node
+  #   networks:
+  #     - app-network
+  #   ports:
+  #     - '3000:3000'
+
+  bun-server: 
+    image: chromia-neural-interface_chr-node:latest
+    container_name: bun-dev-server
+    depends_on:
+      - chr-node
+    # restart: no
+    entrypoint: ["bash", "-c", "sleep 10 && docker exec -it chromia-neural-interface_chr-node_1 sh -c 'bun run dev'"]
 
 # Volumes and networks
 volumes:

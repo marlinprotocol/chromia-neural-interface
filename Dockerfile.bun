@@ -1,0 +1,5 @@
+FROM chromia-neural-interface_chr-node_1
+
+EXPOSE 3000
+
+CMD [ "bun", "run", "dev" ]

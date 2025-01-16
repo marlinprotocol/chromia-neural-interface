@@ -1,31 +1,25 @@
-# FROM ubuntu:22.04
-FROM node:18.17.0
+FROM node:18
 
-# Copy files
-COPY ./ /app
+# We have to install nodemon globally before moving into the working directory
+RUN npm install -g nodemon
 
-#Change Workdir
-WORKDIR /app
+# Create app directory
+WORKDIR /usr/src/app
 
-RUN apt-get update \
-    && apt-get install -y \
-    # wget \
-    # build-essential \
-    curl \
-    && apt-get clean
-
-# Install docker
-RUN curl -fsSL https://get.docker.com -o get-docker.sh \
-    && sh get-docker.sh
-
-# Verify installation
-# RUN docker run hello-world
-
-# RUN usermod -aG docker ubuntu
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+COPY package*.json ./
 
 RUN npm install
+
+# Bundle app source
+COPY start.sh ./
+RUN chmod +x start.sh
+
+COPY . .
 
 EXPOSE 6060
 
 #Start App
-ENTRYPOINT [ "node", "./src/server.js" ]
+# ENTRYPOINT [ "node", "./src/server.js" ]
+CMD [ "bash", "./start.sh" ]
