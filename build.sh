@@ -7,7 +7,7 @@ docker rmi -f $(docker images -a -q)
 docker system prune -f
 
 # build using the docker-compose file
-docker-compose up --build 
+docker-compose up -d 
 
 # sleep 40
 # docker exec -it chromia-neural-interface_chr-node_1 sh -c 'bun run dev'

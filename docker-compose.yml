@@ -87,7 +87,7 @@ services:
     depends_on:
       - chr-node
     # restart: no
-    entrypoint: ["bash", "-c", "sleep 10 && docker exec -it chromia-neural-interface_chr-node_1 sh -c 'bun run dev'"]
+    entrypoint: ["bash", "-c", "bun run dev"]
 
 # Volumes and networks
 volumes:
