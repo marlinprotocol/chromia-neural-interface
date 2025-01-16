@@ -7,7 +7,7 @@ COPY ./ /app
 WORKDIR /app
 
 
-RUN apt-get update && apt-get install -y wget build-essential && apt-get clean
+RUN apt-get update && apt-get install -y wget build-essential curl && apt-get clean
 
 # Install Node dependencies.
 RUN wget https://nodejs.org/dist/v18.17.0/node-v18.17.0-linux-x64.tar.xz \
