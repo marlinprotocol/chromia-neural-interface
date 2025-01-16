@@ -1,17 +1,15 @@
 version: '3.7'
 
 services:
-  # # Frontend service
-  # frontend:
-  #   build:
-  #     context: ./ui
-  #     dockerfile: Dockerfile
-  #   volumes:
-  #     - ./ui:/usr/share/nginx/html
-  #   ports:
-  #     - '80:80'
-  #   networks:
-  #     - app-network
+  # Frontend service
+  frontend:
+    image: chromia-frontend
+    volumes:
+      - ./ui:/usr/share/nginx/html
+    ports:
+      - '80:80'
+    networks:
+      - app-network
 
   # Postgres service
   postgres:
@@ -30,9 +28,7 @@ services:
 
   # Chromia node service
   chr-node:
-    build:
-      context: .
-      dockerfile: Dockerfile.chr-node
+    image: chromia-node
     container_name: my-chr-node
     networks:
       - app-network
@@ -49,47 +45,20 @@ services:
     volumes:
       - ./chromia.yml:/app/chromia.yml
 
-  # node-10:
-  #     build: ./terminal
-  #     volumes:
-  #       - ./terminal:/usr/src/app
-  #     container_name: Checker10
-  #     restart: always
-  #     ports:
-  #       - 6060:6060
-  #     # command: bash -c /usr/src/app/start.sh
-  # bun:
-  #   build: .
-  #   container_name: bun-dev
-  #   restart: always
-  #   ports:
-  #     - 3000:3000
-  #   command: bash -c docker exec -it chromia-neural-interface_chr-node_1 sh -c "bun run dev"
-
-  # bun-dev:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.bun
-  #   restart: always
-  #   environment:
-  #     - XAI_API_KEY=${XAI_API_KEY}
-  #     - CHR_NODE_API_URL=http://chr-node:9870
-  #   depends_on: 
-  #     - chr-node
-  #   networks:
-  #     - app-network
-  #   ports:
-  #     - '3000:3000'
-
-  # bun-server: 
-  #   image: chromia-neural-interface_chr-node:latest
-  #   container_name: bun-dev-server
-  #   depends_on:
-  #     - chr-node
-  #   # restart: no
-  #   stdin_open: true
-  #   tty: true
-  #   entrypoint: ["bash", "-c", "bun run dev"]
+  # bun dev server
+  bun-server: 
+    image: chromia-node
+    container_name: bun-dev-server
+    depends_on:
+      - chr-node
+    restart: "no"
+    networks:
+      - app-network
+    ports:
+      - 3000:3000
+    stdin_open: true
+    tty: true
+    entrypoint: ["bash", "-c", "bun run dev"]
 
 # Volumes and networks
 volumes:
