@@ -2,8 +2,6 @@
 
 This repository demonstrates using Chromia to store AI Agent short-term and long-term memories on chain. It also demonstrates a simple neural interface for interacting with the AI Agent.
 
-![](demo.png)
-
 ## How to Run
 
 ### Prerequisites
@@ -14,7 +12,7 @@ This repository demonstrates using Chromia to store AI Agent short-term and long
 ### Steps
 1. Install dependencies and setup
    ```sh
-   bash build
+   bash build.sh
    ```
    Update `XAI_API_KEY` in `.env`.
 
