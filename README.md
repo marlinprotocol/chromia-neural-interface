@@ -28,3 +28,10 @@ This repository demonstrates using Chromia to store AI Agent short-term and long
    ```sh
    bash start.sh
    ```
+
+nix build --impure --expr '((builtins.getFlake "github:marlinprotocol/oyster-monorepo?rev=f27cbe66bef2f0749ff3afee3aeaff232e933ec0").packages.x86_64-linux.musl.sdks.docker-enclave.override { 
+  compose = ./docker-compose.yml;
+  dockerImages = [
+    ./docker-images/custom-memcached.tar
+  ];
+}).default' -vL
