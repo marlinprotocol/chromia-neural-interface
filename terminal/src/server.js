@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 
 // Config
 setSharedTerminalMode(false); // Set this to false to allow a shared session
-const port = 6060;
+const port = 6061;
 
 const server = http.createServer((req, res) => {
     if (req.method === 'GET') {
