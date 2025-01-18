@@ -28,9 +28,7 @@ services:
 
   # Chromia node service
   chr-node:
-    build: 
-      context: .
-      dockerfile: Dockerfile.chr-node
+    image: chromia-node
     container_name: my-chr-node
     networks:
       - app-network
