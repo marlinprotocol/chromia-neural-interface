@@ -1,15 +1,15 @@
 version: '3.7'
 
 services:
-  # Frontend service
-  #  frontend:
-    #    image: chromia-frontend
-      #    volumes:
-      #      - ./ui:/usr/share/nginx/html
-        #    ports:
-      #      - '80:80'
-        #    networks:
-      #      - app-network
+  # # Frontend service
+  # frontend:
+  #   image: chromia-frontend
+  #   volumes:
+  #     - ./ui:/usr/share/nginx/html
+  #   ports:
+  #     - '80:80'
+  #   networks:
+  #     - app-network
 
   # Postgres service
   postgres:
@@ -28,7 +28,9 @@ services:
 
   # Chromia node service
   chr-node:
-    image: chromia-node
+    build: 
+      context: .
+      dockerfile: Dockerfile.chr-node
     container_name: my-chr-node
     networks:
       - app-network
@@ -38,30 +40,29 @@ services:
       - '9870:9870'
       - '7750:7750'
       - '7740:7740'
+      - '6060:6060'
     healthcheck:
       test: ['CMD', 'pg_isready', '-h', 'postgres', '-U', 'postgres']
       interval: 30s
       retries: 5
     volumes:
       - ./chromia.yml:/app/chromia.yml
-
-  # bun dev server
-  #  bun-server: 
-    #    image: chromia-node
-      #    container_name: bun-dev-server
-      #    depends_on:
-      #      - chr-node
-        #    environment:
-      #      - XAI_API_KEY=${XAI_API_KEY}
-        #      - CHR_NODE_API_URL=http://chr-node:9870
-        #    restart: "no"
-      #    networks:
-      #      - app-network
-        #    ports:
-      #      - 3000:3000
-        #    stdin_open: true
-      #    tty: true
-      #    entrypoint: ["bash", "-c", "sleep 20 && docker exec -it chromia-neural-interface_chr-node_1 sh -c 'bun run dev'"]
+  
+#  # terminal over http
+#   terminal:
+#     build: 
+#       context: .
+#       dockerfile: Dockerfile.terminal
+#     container_name: chromia-terminal-service
+#     environment:
+#       - XAI_API_KEY=${XAI_API_KEY}
+#       - CHR_NODE_API_URL=http://localhost:9870
+#     depends_on:
+#       - chr-node
+#     networks:
+#       - app-network
+#     ports:
+#       - 6060:6060
 
 # Volumes and networks
 volumes:

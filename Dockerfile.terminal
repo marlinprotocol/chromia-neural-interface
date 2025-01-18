@@ -8,18 +8,18 @@ WORKDIR /usr/src/app
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
-COPY package*.json ./
+COPY ./terminal/package*.json bun.lockb ./
 
-RUN npm install
+RUN npm install && npm install -g bun --force
 
-# Bundle app source
-COPY start.sh ./
-RUN chmod +x start.sh
+RUN bun --help
 
 COPY . .
+
+RUN bun install
 
 EXPOSE 6060
 
 #Start App
-# ENTRYPOINT [ "node", "./src/server.js" ]
-CMD [ "bash", "./start.sh" ]
+ENTRYPOINT [ "node", "./terminal/src/server.js" ]
+# CMD [ "bash", "./start.sh" ]
