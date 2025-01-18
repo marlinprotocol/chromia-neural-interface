@@ -24,24 +24,11 @@ RUN curl -fsSL https://bun.sh/install | bash
 ENV BUN_INSTALL="/root/.bun"
 ENV PATH="/root/.bun/bin:$PATH"
 
-# RUN rm -rf /var/lib/apt/lists/*
-
 COPY . .
 
 RUN ["bun", "install"]
-# Default command to start the node
-CMD ["chr", "node", "start"]
 
-# FROM node:18 AS developer
-
-# FROM ubuntu:22.04
-
-# # Copy files
-# COPY ./ /app
-
-# #Change Workdir
-# WORKDIR /app
-RUN apt-get install -y build-essential wget
+RUN apt-get install -y build-essential wget xterm
 
 # Install Node dependencies.
 RUN wget https://nodejs.org/dist/v18.17.0/node-v18.17.0-linux-x64.tar.xz \
@@ -51,11 +38,13 @@ RUN wget https://nodejs.org/dist/v18.17.0/node-v18.17.0-linux-x64.tar.xz \
 # Setup Path
 ENV PATH="/node/node-v18.17.0-linux-x64/bin:${PATH}"
 
-COPY ./terminal/package*.json ./
+WORKDIR /app/terminal
+
 RUN npm install
 
 EXPOSE 6060
 
-#Start App
+WORKDIR /app
+
 ENTRYPOINT [ "node", "./terminal/src/server.js" ]
 

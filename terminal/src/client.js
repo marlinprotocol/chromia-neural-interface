@@ -21,11 +21,9 @@ function init() {
     term._initialized = true;
 
     term.prompt = () => {
-        runCommand('\n');
-        runCommand('clear');
         // runCommand('docker exec -it chromia-neural-interface_chr-node_1 sh -c "bun run dev"');
         runCommand('\n');
-        runCommand('bun run dev')
+        runCommand('clear');
         runCommand('\n');
     };
     setTimeout(() => {
