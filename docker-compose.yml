@@ -33,7 +33,7 @@ services:
       - '7740:7740'
       - '6060:6060'
     healthcheck:
-      test: ['CMD', 'pg_isready', '-h', 'postgres', '-U', 'postgres']
+      test: ["CMD-SHELL", "pg_isready -U postchain -d postchain"]
       interval: 30s
       retries: 5
     volumes:
