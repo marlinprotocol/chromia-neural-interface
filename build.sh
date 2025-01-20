@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # remove old images
-docker kill $(docker ps -a -q)
-docker rm -f $(docker ps -a -q)
-docker rmi -f $(docker images -a -q)
-docker system prune -f
+sudo docker kill $(sudo docker ps -a -q)
+sudo docker rm -f $(sudo docker ps -a -q)
+sudo docker rmi -f $(sudo docker images -a -q)
+sudo docker system prune -f
 
 # build using the docker-compose file
-docker-compose up --build
+# sudo docker-compose up --build
