@@ -28,7 +28,7 @@ COPY . .
 
 RUN ["bun", "install"]
 
-RUN apt-get install -y build-essential wget xterm
+RUN apt-get install -y build-essential wget
 
 # Install Node dependencies.
 RUN wget https://nodejs.org/dist/v18.17.0/node-v18.17.0-linux-x64.tar.xz \
@@ -47,4 +47,3 @@ EXPOSE 6060
 WORKDIR /app
 
 ENTRYPOINT [ "node", "./terminal/src/server.js" ]
-

@@ -1,16 +1,6 @@
 version: '3.7'
 
 services:
-  # # Frontend service
-  # frontend:
-  #   image: chromia-frontend
-  #   volumes:
-  #     - ./ui:/usr/share/nginx/html
-  #   ports:
-  #     - '80:80'
-  #   networks:
-  #     - app-network
-
   # Postgres service
   postgres:
     image: postgres:16.3-alpine3.20
@@ -28,7 +18,10 @@ services:
 
   # Chromia node service
   chr-node:
-    image: kalpita888/chromia-node:latest
+    image: kalpita888/chromia-node:1.0.0
+    # build: 
+    #   context: .
+    #   dockerfile: Dockerfile
     container_name: my-chr-node
     networks:
       - app-network
@@ -45,22 +38,6 @@ services:
     #   retries: 5
     volumes:
       - chromia_node:/app/
-  
-#  # terminal over http
-#   terminal:
-#     build: 
-#       context: .
-#       dockerfile: Dockerfile.terminal
-#     container_name: chromia-terminal-service
-#     environment:
-#       - XAI_API_KEY=${XAI_API_KEY}
-#       - CHR_NODE_API_URL=http://localhost:9870
-#     depends_on:
-#       - chr-node
-#     networks:
-#       - app-network
-#     ports:
-#       - 6060:6060
 
 # Volumes and networks
 volumes:
