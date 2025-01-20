@@ -34,7 +34,7 @@ services:
       - app-network
     depends_on:
       - postgres:
-        condition: service_healthy
+        # condition: service_healthy
     ports:
       - '9870:9870'
       - '7750:7750'
