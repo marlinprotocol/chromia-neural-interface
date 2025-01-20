@@ -7,4 +7,4 @@ sudo docker rmi -f $(sudo docker images -a -q)
 sudo docker system prune -f
 
 # build using the docker-compose file
-# sudo docker-compose up --build
+sudo docker-compose up --build
