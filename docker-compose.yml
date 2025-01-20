@@ -22,10 +22,10 @@ services:
 
   # Chromia node service
   chr-node:
-    # image: kalpita888/chromia-node:1.0.0
-    build: 
-      context: .
-      dockerfile: Dockerfile
+    image: kalpita888/chromia-node:1.0.0
+    # build: 
+    #   context: .
+    #   dockerfile: Dockerfile
     container_name: my-chr-node
     networks:
       - app-network
