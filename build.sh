@@ -6,9 +6,6 @@ docker rm -f $(docker ps -a -q)
 docker rmi -f $(docker images -a -q)
 docker system prune -f
 
-# load docker images
-docker load < ./chromia-node.tar
-
 # build using the docker-compose file
 docker-compose up --build
 
