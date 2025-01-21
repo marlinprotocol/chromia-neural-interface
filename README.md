@@ -2,27 +2,23 @@
 
 This repository demonstrates using Chromia to store AI Agent short-term and long-term memories on chain. It also demonstrates a simple neural interface for interacting with the AI Agent.
 
-## How to Run
+## Run using docker compose
 
 ### Prerequisites
 - Install [Docker](https://docs.docker.com/engine/install/ubuntu/)
-- Install [npm](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04)
-- Fetch [Groq API key](https://console.groq.com/keys)
 
 ### Steps
 1. Install dependencies and setup
    ```sh
    bash build.sh
    ```
-   Update `XAI_API_KEY` in `.env`.
 
-2. Start the interactive terminal browser (in a new terminal) 
+2. Navigate to http://host-ip-or-localhost:6060 and run:
     ```sh
-    cd terminal
-    npm run start
+    chr node start
     ```
 
-3. Navigate to http://host-machine-ip-or-localhost:6060 and start bun dev server
+3. Open a new tab & navigate to http://host-ip-or-localhost:6060 and run:
    ```sh
-   bash start.sh
+   bun run dev
    ```
