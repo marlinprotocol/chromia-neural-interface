@@ -13,12 +13,4 @@ This repository demonstrates using Chromia to store AI Agent short-term and long
    bash build.sh
    ```
 
-2. Navigate to http://host-ip-or-localhost:6060 and run:
-    ```sh
-    chr node start
-    ```
-
-3. Open a new tab & navigate to http://host-ip-or-localhost:6060 and run:
-   ```sh
-   bun run dev
-   ```
+2. Navigate to http://host-ip-or-localhost:6060 and start chatting!
