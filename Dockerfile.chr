@@ -27,23 +27,24 @@ ENV PATH="/root/.bun/bin:$PATH"
 COPY . .
 
 RUN ["bun", "install"]
+CMD [ "chr", "node", "start" ]
 
-RUN apt-get install -y build-essential wget
+# RUN apt-get install -y build-essential wget
 
-# Install Node dependencies.
-RUN wget https://nodejs.org/dist/v18.17.0/node-v18.17.0-linux-x64.tar.xz \
-    && mkdir -p /node && tar -xf node-v18.17.0-linux-x64.tar.xz -C /node \
-    && chmod +x -R /node/node-v18.17.0-linux-x64
+# # Install Node dependencies.
+# RUN wget https://nodejs.org/dist/v18.17.0/node-v18.17.0-linux-x64.tar.xz \
+#     && mkdir -p /node && tar -xf node-v18.17.0-linux-x64.tar.xz -C /node \
+#     && chmod +x -R /node/node-v18.17.0-linux-x64
 
-# Setup Path
-ENV PATH="/node/node-v18.17.0-linux-x64/bin:${PATH}"
+# # Setup Path
+# ENV PATH="/node/node-v18.17.0-linux-x64/bin:${PATH}"
 
-WORKDIR /app/terminal
+# WORKDIR /app/terminal
 
-RUN npm install
+# RUN npm install
 
-EXPOSE 6060
+# EXPOSE 6060
 
-WORKDIR /app
+# WORKDIR /app
 
-ENTRYPOINT [ "node", "./terminal/src/server.js" ]
+# ENTRYPOINT [ "node", "./terminal/src/server.js" ]
