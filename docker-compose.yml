@@ -8,8 +8,11 @@ services:
       POSTGRES_PASSWORD: postchain
       POSTGRES_DB: postchain
       POSTGRES_USER: postchain
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+    init: true
+    network_mode: host
+    restart: unless-stopped
+    # volumes:
+    #   - postgres_data:/var/lib/postgresql/data
       # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - '5432:5432'
@@ -17,8 +20,8 @@ services:
       test: ["CMD-SHELL", "pg_isready -U postchain -d postchain -h postgres -p 5432"]
       interval: 10s
       retries: 3
-    networks:
-      - app-network
+    # networks:
+    #   - app-network
 
   # Chromia node service
   chr-node:
