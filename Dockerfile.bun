@@ -31,5 +31,7 @@ RUN npm install
 # Expose the port the app runs on
 EXPOSE 6060
 
+WORKDIR /app
+
 # Command to run the app
-CMD [ "node", "./src/server.js"]
+CMD [ "node", "./terminal/src/server.js"]
