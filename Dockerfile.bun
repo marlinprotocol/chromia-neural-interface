@@ -1,6 +1,21 @@
 # Use the official Node.js image as the base image
 FROM node:18.17.0
 
+# Set the working directory in the container
+WORKDIR /app/terminal
+
+# Copy the package.json and package-lock.json files to the container
+COPY ./terminal/package*.json ./
+
+# Install the dependencies
+RUN npm install
+
+# # Copy the rest of the application code into the container
+COPY ./terminal .
+
+# Expose the port the app runs on
+EXPOSE 6060
+
 # Set working directory
 WORKDIR /app
 
@@ -15,23 +30,6 @@ ENV PATH="/root/.bun/bin:$PATH"
 COPY . .
 
 RUN ["bun", "install"]
-
-# Set the working directory in the container
-WORKDIR /app/terminal
-
-# Copy the package.json and package-lock.json files to the container
-# COPY ./terminal/package*.json ./
-
-# Install the dependencies
-RUN npm install
-
-# # Copy the rest of the application code into the container
-# COPY ./terminal .
-
-# Expose the port the app runs on
-EXPOSE 6060
-
-WORKDIR /app
 
 # Command to run the app
 CMD [ "node", "./terminal/src/server.js"]
