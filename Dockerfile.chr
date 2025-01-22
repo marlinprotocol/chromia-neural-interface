@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y chr
 # ENV BUN_INSTALL="/root/.bun"
 # ENV PATH="/root/.bun/bin:$PATH"
 
-# COPY . .
+COPY . .
 
 # RUN ["bun", "install"]
 CMD [ "chr", "node", "start" ]
