@@ -3,7 +3,7 @@ use std::env;
 use simplecrypt::decrypt;
 use serde::{Serialize, Deserialize};
 use dotenv::dotenv;
-use kalypso_helper::response::response;
+use crate::response::response;
 use serde_json::Value;
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
