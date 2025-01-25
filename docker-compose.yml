@@ -15,6 +15,21 @@ services:
       test: ["CMD-SHELL", "pg_isready -U postchain -d postchain -h localhost -p 5432"]
       interval: 10s
       retries: 3
+    
+  # Initializer for api keys
+  initializer:
+    build:
+      context: .
+      dockerfile: Dockerfile.initializer
+    container_name: my_key_initializer
+    init: true
+    network_mode: host
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD_SHELL", "curl localhost:3030/api/get_key"]
+      start_period: 60s
+      interval: 10s
+      retries: 3
 
   # Chromia node service
   chr-node:
@@ -28,6 +43,8 @@ services:
     restart: unless-stopped
     depends_on:
       postgres:
+        condition: service_healthy
+      initializer:
         condition: service_healthy
   
   # Bun service

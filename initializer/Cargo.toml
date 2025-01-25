@@ -5,18 +5,11 @@ edition = "2021"
 
 [dependencies]
 serde_json="1.0"
-bindings = { path = "./bindings", package = "foundry-contracts" }
 serde = { version = "1.0", features = ["derive"] }
-tokio = { version = "1.16.1", features = ["full"] }
 actix-web = "4.3.0"
 dotenv = "0.15.0"
-validator = { version = "0.17", features = ["derive"] }
-ecies = {version = "0.2.6", features = ["std"]}
-openssl = { version = "0.10", features = ["vendored"] }
 env_logger = "0.11"
 log = "0.4"
-hex = "0.4"
-futures-util = "0.3"
-secp256k1 = "0.29.0"
-reqwest = "0.11.23"
-ethers = {version = "2.0.8", features = ["abigen", "ws", "rustls"] }
+simplecrypt = "1.0.2"
+kalypso_helper = { git = "https://github.com/marlinprotocol/kalypso-unified.git", branch = "master", package = "helper" }
+
