@@ -26,6 +26,10 @@ services:
     init: true
     network_mode: host
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl --location --request GET 'http://localhost:3030/api/get_key'"]
+      interval: 10s
+      retries: 1
 
   # Chromia node service
   chr-node:
