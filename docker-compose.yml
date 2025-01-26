@@ -26,14 +26,10 @@ services:
     init: true
     network_mode: host
     restart: unless-stopped
-    healthcheck:
-      test: ["CMD-SHELL", "curl --location --request GET 'http://localhost:3030/api/get_key'"]
-      interval: 10s
-      retries: 1
 
   # Chromia node service
   chr-node:
-    image: kalpita888/chr-node:1.0.0
+    image: kalpita888/chr-node:0.1.0
     # build: 
     #   context: .
     #   dockerfile: Dockerfile.chr
@@ -47,7 +43,7 @@ services:
   
   # Bun service
   bun:
-    image: kalpita888/bun:1.0.0
+    image: kalpita888/bun:0.1.0
     # build: 
     #   context: .
     #   dockerfile: Dockerfile.bun
