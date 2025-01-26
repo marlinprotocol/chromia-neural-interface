@@ -18,9 +18,10 @@ services:
     
   # Initializer for api keys
   initializer:
-    build:
-      context: .
-      dockerfile: Dockerfile.init
+    image: kalpita888/initializer:1.0.0
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile.init
     container_name: my_key_initializer
     init: true
     network_mode: host
