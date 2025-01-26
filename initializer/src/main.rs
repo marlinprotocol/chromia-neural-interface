@@ -4,7 +4,7 @@ mod response;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    env_logger::init_from_env(env_logger::Env::new().default_filter_or("info"));
+    // env_logger::init_from_env(env_logger::Env::new().default_filter_or("info"));
 
     let port: u16 = 3030;
 
@@ -13,7 +13,7 @@ async fn main() -> std::io::Result<()> {
         .unwrap_or_else(|_| panic!("Can not bind to {}", &port))
         .run();
 
-    log::info!("generator-client started on port {}", port);
+    println!("generator-client started on port {}", port);
 
     server.await
 }

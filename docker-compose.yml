@@ -20,14 +20,13 @@ services:
   initializer:
     build:
       context: .
-      dockerfile: Dockerfile.initializer
+      dockerfile: Dockerfile.init
     container_name: my_key_initializer
     init: true
     network_mode: host
     restart: unless-stopped
     healthcheck:
-      test: ["CMD_SHELL", "curl localhost:3030/api/get_key"]
-      start_period: 60s
+      test: ["CMD-SHELL", "bash ./healthcheck.sh"]
       interval: 10s
       retries: 3
 
