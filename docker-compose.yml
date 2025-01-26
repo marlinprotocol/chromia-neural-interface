@@ -26,9 +26,9 @@ services:
     network_mode: host
     restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "bash ./healthcheck.sh"]
+      test: ["CMD-SHELL", "curl --location --request GET 'http://localhost:3030/api/get_key'"]
       interval: 10s
-      retries: 3
+      retries: 1
 
   # Chromia node service
   chr-node:
@@ -41,10 +41,8 @@ services:
     network_mode: host
     restart: unless-stopped
     depends_on:
-      postgres:
-        condition: service_healthy
-      initializer:
-        condition: service_healthy
+      - postgres
+      - initializer
   
   # Bun service
   bun:

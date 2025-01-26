@@ -7,8 +7,12 @@ RUN apk add --no-cache musl-dev
 COPY initializer-app ./
 RUN chmod +x initializer-app
 
+COPY healthCheck.sh ./
+RUN chmod +x healthCheck.sh
+
 RUN ls
 
 EXPOSE 3030
 
-CMD ["./initializer-app"]
+ENTRYPOINT ["./initializer-app"]
+CMD [ "bash", "healthCheck.sh" ]
