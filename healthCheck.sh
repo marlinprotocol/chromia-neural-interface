@@ -9,6 +9,3 @@ curl --location --request POST 'http://localhost:3030/api/set_key' \
 "encryption_key": [66, 108, 97, 104, 66, 108, 97, 104, 49, 50, 51] 
  }'
 
-# check the api key is set correctly
-echo "Fetching api key.."
-curl --location --request GET 'http://localhost:3030/api/get_key'
