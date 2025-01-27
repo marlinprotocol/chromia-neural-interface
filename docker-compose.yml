@@ -33,7 +33,7 @@ services:
 
   # Chromia node service
   chr-node:
-    image: kalpita888/chr-node:0.1.0
+    image: kalpita888/chr-node:1.0.0
     # build: 
     #   context: .
     #   dockerfile: Dockerfile.chr
@@ -47,7 +47,7 @@ services:
   
   # Bun service
   bun:
-    image: kalpita888/bun:0.1.0
+    image: kalpita888/bun:1.0.0
     # build: 
     #   context: .
     #   dockerfile: Dockerfile.bun
