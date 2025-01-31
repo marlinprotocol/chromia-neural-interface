@@ -34,9 +34,6 @@ services:
   # Chromia node service
   chr-node:
     image: kalpita888/chr-node:1.0.0
-    # build: 
-    #   context: .
-    #   dockerfile: Dockerfile.chr
     container_name: my-chr-node
     init: true
     network_mode: host
@@ -47,11 +44,10 @@ services:
   
   # Bun service
   bun:
-    image: kalpita888/bun:1.0.0
-    # build: 
-    #   context: .
-    #   dockerfile: Dockerfile.bun
+    image: kalpita888/bun:0.1.0
     container_name: my-chat-agent
+    environment:
+      - XAI_API_KEY=${XAI_API_KEY}
     init: true
     network_mode: host
     restart: unless-stopped
