@@ -1,0 +1,9 @@
+FROM rust:alpine as builder
+WORKDIR /usr/src/init-params-manager
+COPY ./init-params-manager .
+RUN apk add musl-dev
+RUN cargo build --release
+
+FROM alpine
+COPY --from=builder /usr/src/init-params-manager/target/release/init-params-decoder /usr/local/bin/init-params-decoder
+CMD ["init-params-decoder"]

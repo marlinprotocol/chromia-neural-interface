@@ -4,15 +4,20 @@ WORKDIR /usr/src/app
 # install dependency tools
 RUN apk add --no-cache musl-dev
 
-COPY initializer-app ./
-RUN chmod +x initializer-app
+# COPY initializer-app ./
+# RUN chmod +x initializer-app
 
-COPY healthCheck.sh ./
-RUN chmod +x healthCheck.sh
+# COPY healthCheck.sh ./
+# RUN chmod +x healthCheck.sh
 
-RUN ls
+# RUN ls
+
+COPY init-params-decoder ./
+RUN chmod +x init-params-decoder
 
 EXPOSE 3030
 
-ENTRYPOINT ["./initializer-app"]
-CMD [ "bash", "healthCheck.sh" ]
+# ENTRYPOINT ["./initializer-app"]
+# CMD [ "bash", "healthCheck.sh" ]
+
+CMD ["./init-params-decoder --init-params-path /app"]

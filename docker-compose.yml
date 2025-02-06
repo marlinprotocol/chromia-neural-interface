@@ -10,7 +10,7 @@ services:
       POSTGRES_USER: postchain
     init: true
     network_mode: host
-    restart: unless-stopped
+    # restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postchain -d postchain -h localhost -p 5432"]
       interval: 10s
@@ -18,38 +18,36 @@ services:
     
   # Initializer for api keys
   initializer:
-    image: kalpita888/initializer:1.0.0
+    image: kalpita888/initializer:0.1.0
     # build:
     #   context: .
     #   dockerfile: Dockerfile.init
-    container_name: my_key_initializer
+    container_name: my-init-params-manager
     init: true
     network_mode: host
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD-SHELL", "curl --location --request GET 'http://localhost:3030/api/get_key'"]
-      interval: 10s
-      retries: 1
+    # restart: unless-stopped
 
   # Chromia node service
   chr-node:
-    image: kalpita888/chr-node:1.0.0
+    image: kalpita888/chr-node:0.1.0
     container_name: my-chr-node
     init: true
     network_mode: host
-    restart: unless-stopped
+    # restart: unless-stopped
     depends_on:
       - postgres
-      - initializer
   
   # Bun service
   bun:
     image: kalpita888/bun:0.1.0
     container_name: my-chat-agent
-    environment:
-      - XAI_API_KEY=${XAI_API_KEY}
     init: true
     network_mode: host
-    restart: unless-stopped
+    # restart: unless-stopped
+    # environment:
+    #   - XAI_API_KEY=${XAI_API_KEY}
+    env_file:
+      - /init-params/.env
     depends_on:
       - chr-node
+      - initializer
