@@ -15,9 +15,9 @@ RUN apk add --no-cache musl-dev
 COPY init-params-decoder ./
 RUN chmod +x init-params-decoder
 
-EXPOSE 3030
+# EXPOSE 3030
 
 # ENTRYPOINT ["./initializer-app"]
 # CMD [ "bash", "healthCheck.sh" ]
 
-CMD ["./init-params-decoder --init-params-path /app"]
+CMD ["./init-params-decoder"]

@@ -47,7 +47,7 @@ services:
     # environment:
     #   - XAI_API_KEY=${XAI_API_KEY}
     env_file:
-      - /init-params/.env
+      - ./init-params/
     depends_on:
       - chr-node
       - initializer
