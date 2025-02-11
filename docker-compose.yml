@@ -16,17 +16,17 @@ services:
       interval: 10s
       retries: 3
     
-  # Initializer for api keys
-  initializer:
-    image: kalpita888/initializer:0.1.0
-    container_name: my-init-params-manager
-    init: true
-    network_mode: host
-    # restart: unless-stopped
-    healthcheck:
-      test: ["CMD-SHELL", "ls -d ./init-params/.env"]
-      interval: 10s
-      retries: 5
+  # # Initializer for api keys
+  # initializer:
+  #   image: kalpita888/initializer:0.1.0
+  #   container_name: my-init-params-manager
+  #   init: true
+  #   network_mode: host
+  #   # restart: unless-stopped
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "ls -d /app/init-params/.env"]
+  #     interval: 10s
+  #     retries: 5
 
   # Chromia node service
   chr-node:
@@ -46,7 +46,7 @@ services:
     network_mode: host
     # restart: unless-stopped
     env_file:
-      - ./init-params/.env
+      - /app/init-params
     depends_on:
       - chr-node
-      - initializer
+      # - initializer
