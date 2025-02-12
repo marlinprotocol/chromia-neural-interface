@@ -60,12 +60,12 @@ This repository demonstrates using Chromia to store AI Agent short-term and long
    # for amd64
    # replace <key> with private key of the wallet
    # replace <url> with url from the upload step
-   oyster-cvm deploy --wallet-private-key <key> --image-url <url> --instance-type c6a.xlarge --region ap-south-1 --operator 0xe10Fa12f580e660Ecd593Ea4119ceBC90509D642 --duration-in-minutes 15
+   oyster-cvm deploy --wallet-private-key <key> --image-url <url> --instance-type c6a.4xlarge --region ap-south-1 --operator 0xe10Fa12f580e660Ecd593Ea4119ceBC90509D642 --duration-in-minutes 15
 
    # for arm64
    # replace <key> with private key of the wallet
    # replace <url> with url from the upload step
-   oyster-cvm deploy --wallet-private-key <key> --image-url <url> --instance-type c6g.xlarge --region ap-south-1 --operator 0xe10Fa12f580e660Ecd593Ea4119ceBC90509D642 --duration-in-minutes 15
+   oyster-cvm deploy --wallet-private-key <key> --image-url <url> --instance-type c6g.4xlarge --region ap-south-1 --operator 0xe10Fa12f580e660Ecd593Ea4119ceBC90509D642 --duration-in-minutes 15
    ```
    Make a note of the IP from the output and navigate to http://IP:6060 and start chatting!
 
