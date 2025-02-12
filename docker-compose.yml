@@ -31,13 +31,11 @@ services:
     init: true
     network_mode: host
     # restart: unless-stopped
-    volumes:
-      - /init-params/bun/.env:/app/.env
     env_file:
-      - /app/.env
+      - /init-params/bun/.env
     depends_on:
       - chr-node
     healthcheck:
-      test: ["CMD-SHELL", "ls -d /init-params/bun/.env"]
+      test: ["CMD-SHELL", "ls -alh /init-params/"]
       interval: 10s
       retries: 5
