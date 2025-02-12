@@ -8,8 +8,10 @@ This repository demonstrates using Chromia to store AI Agent short-term and long
 ## Prerequisites
 - Install [Docker](https://docs.docker.com/engine/install/ubuntu/)
 - Fetch [Groq API key](https://console.groq.com/keys)
+
+**Note:** The default architecture for the code is amd64, for arm64 systems replace docker images with corresponding arm64 versions in the `docker-compose.yml` file.
   
-## For amd64 local run
+## Steps for local run
 1. Install dependencies and setup
    ```sh
    docker-compose up --build
@@ -19,18 +21,4 @@ This repository demonstrates using Chromia to store AI Agent short-term and long
 2. Wait for the chromia node to start. You should be able to see logs:
    ![Logs](logs.png)
 
-3. Navigate to http://host-ip-or-localhost:6060 and start chatting!
-
-## For arm64 local run
-1. Replace docker images with corresponding arm64 versions in the `docker-compose.yml` file
-
-2. Install dependencies and setup
-   ```sh
-   docker-compose up --build
-   ```
-   Update `XAI_API_KEY` in `.env`
-
-3. Wait for the chromia node to start. You should be able to see logs:
-   ![Logs](logs.png)
-
-4. Navigate to http://host-ip-or-localhost:6060 and start chatting!
+3. Navigate to http://localhost:6060 and start chatting!
