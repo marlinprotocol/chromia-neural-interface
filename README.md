@@ -17,7 +17,7 @@ This repository demonstrates using Chromia to store AI Agent short-term and long
    Update `XAI_API_KEY` in `.env`
 
 2. Wait for the chromia node to start. You should be able to see logs:
-   ![Logs](image.png)
+   ![Logs](logs.png)
 
 3. Navigate to http://host-ip-or-localhost:6060 and start chatting!
 
@@ -31,6 +31,6 @@ This repository demonstrates using Chromia to store AI Agent short-term and long
    Update `XAI_API_KEY` in `.env`
 
 3. Wait for the chromia node to start. You should be able to see logs:
-   ![Logs](image.png)
+   ![Logs](logs.png)
 
 4. Navigate to http://host-ip-or-localhost:6060 and start chatting!
