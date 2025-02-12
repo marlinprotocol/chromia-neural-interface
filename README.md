@@ -5,13 +5,11 @@ This repository demonstrates using Chromia to store AI Agent short-term and long
 [Chromia Demo using oyster](https://www.youtube.com/watch?v=YfWzTeK1LaY)
 
 
-## Run using docker compose
-
-### Prerequisites
+## Prerequisites
 - Install [Docker](https://docs.docker.com/engine/install/ubuntu/)
 - Fetch [Groq API key](https://console.groq.com/keys)
-
-### For amd64 local run
+  
+## For amd64 local run
 1. Install dependencies and setup
    ```sh
    docker-compose up --build
@@ -23,7 +21,7 @@ This repository demonstrates using Chromia to store AI Agent short-term and long
 
 3. Navigate to http://host-ip-or-localhost:6060 and start chatting!
 
-### For arm64 local run
+## For arm64 local run
 1. Replace docker images with corresponding arm64 versions in the `docker-compose.yml` file
 
 2. Install dependencies and setup
