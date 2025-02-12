@@ -8,7 +8,7 @@ services:
       POSTGRES_USER: postchain
     init: true
     network_mode: host
-    restart: unless-stopped
+    # restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postchain -d postchain -h localhost -p 5432"]
       interval: 10s
@@ -16,22 +16,28 @@ services:
 
   # Chromia node service
   chr-node:
-    image: kalpita888/chromia-node:1.0.0            # For arm64 system use kalpita888/chromia-node_arm64:1.0.0
+    image: kalpita888/chr-node:1.0.0
     container_name: my-chr-node
     init: true
     network_mode: host
-    restart: unless-stopped
+    # restart: unless-stopped
     depends_on:
       - postgres
   
   # Bun service
   bun:
-    image: kalpita888/bun:1.0.0           # For arm64 system use kalpita888/bun_arm64:1.0.0
+    image: kalpita888/bun:1.0.0
     container_name: my-chat-agent
     init: true
     network_mode: host
-    restart: unless-stopped
-    environment:
-      - XAI_API_KEY=${XAI_API_KEY}
+    # restart: unless-stopped
+    volumes:
+      - /init-params/bun/.env:/app/.env
+    env_file:
+      - /app/.env
     depends_on:
       - chr-node
+    healthcheck:
+      test: ["CMD-SHELL", "ls -d /init-params/bun/.env"]
+      interval: 10s
+      retries: 5
