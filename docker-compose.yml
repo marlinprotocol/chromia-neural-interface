@@ -1,5 +1,3 @@
-version: '3.7'
-
 services:
   # Postgres service
   postgres:
@@ -10,23 +8,11 @@ services:
       POSTGRES_USER: postchain
     init: true
     network_mode: host
-    # restart: unless-stopped
+    restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postchain -d postchain -h localhost -p 5432"]
       interval: 10s
       retries: 3
-    
-  # # Initializer for api keys
-  # initializer:
-  #   image: kalpita888/initializer:0.1.0
-  #   container_name: my-init-params-manager
-  #   init: true
-  #   network_mode: host
-  #   # restart: unless-stopped
-  #   healthcheck:
-  #     test: ["CMD-SHELL", "ls -d /app/init-params/.env"]
-  #     interval: 10s
-  #     retries: 5
 
   # Chromia node service
   chr-node:
@@ -34,19 +20,18 @@ services:
     container_name: my-chr-node
     init: true
     network_mode: host
-    # restart: unless-stopped
+    restart: unless-stopped
     depends_on:
       - postgres
   
   # Bun service
   bun:
-    image: kalpita888/bun:0.1.0
+    image: kalpita888/bun:1.0.0
     container_name: my-chat-agent
     init: true
     network_mode: host
-    # restart: unless-stopped
-    env_file:
-      - /app/init-params
+    restart: unless-stopped
+    environment:
+      - XAI_API_KEY=${XAI_API_KEY}
     depends_on:
       - chr-node
-      # - initializer
