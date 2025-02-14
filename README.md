@@ -36,7 +36,7 @@ This repository demonstrates using Chromia to store AI Agent short-term and long
 
 3. Navigate to http://localhost:6060 and start chatting!
 
-## Steps for using Marlin's TEE
+## Steps for using Marlin's TEE (only supports Linux system)
 1. Replace the environment variable value with the `XAI_API_KEY` in `docker-compose.yml`
    ```sh
    environment:
