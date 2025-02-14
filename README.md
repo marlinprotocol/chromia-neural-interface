@@ -7,6 +7,7 @@ This repository demonstrates using Chromia to store AI Agent short-term and long
 
 ## Prerequisites
 - Install [Docker](https://docs.docker.com/engine/install/ubuntu/)
+- Enable [host networking](https://docs.docker.com/engine/network/drivers/host/#docker-desktop) on docker desktop
 - Fetch [Groq API key](https://console.groq.com/keys)
   
 ## Steps for local run
