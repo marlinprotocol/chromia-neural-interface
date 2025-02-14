@@ -8,10 +8,22 @@ This repository demonstrates using Chromia to store AI Agent short-term and long
 ## Prerequisites
 - Install [Docker](https://docs.docker.com/engine/install/ubuntu/)
 - Fetch [Groq API key](https://console.groq.com/keys)
-
-**Note:** The default architecture for the code is `amd64`, for `arm64` systems replace docker images with corresponding arm64 versions in the `docker-compose.yml` file and enable host networking on docker desktop.
   
 ## Steps for local run
+
+**Note:** Update the following docker images according to your system's architecture in the `docker-compose.yml`:
+  ```sh
+    # Chromia node service
+    chr-node:
+      image: kalpita888/chromia-node:1.0.0            # For arm64 system use kalpita888/chromia-node_arm64:1.0.0 and for amd64 system use kalpita888/chromia-node:1.0.0
+  ```
+  ```sh
+   # Bun service
+    bun:
+      image: kalpita888/bun:1.0.0                     # For arm64 system use kalpita888/bun_arm64:1.0.0 and for amd64 system use kalpita888/bun:1.0.0
+  ```
+  
+
 1. Install dependencies and setup
    ```sh
    docker-compose up --build
