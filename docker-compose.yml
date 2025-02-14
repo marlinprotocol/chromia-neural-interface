@@ -16,7 +16,7 @@ services:
 
   # Chromia node service
   chr-node:
-    image: kalpita888/chromia-node:1.0.0            # For arm64 system use kalpita888/chromia-node_arm64:1.0.0
+    image: kalpita888/chromia-node:1.0.0            # For arm64 system use kalpita888/chromia-node_arm64:1.0.0 and for amd64 system use kalpita888/chromia-node:1.0.0
     container_name: my-chr-node
     init: true
     network_mode: host
@@ -26,7 +26,7 @@ services:
   
   # Bun service
   bun:
-    image: kalpita888/bun:1.0.0           # For arm64 system use kalpita888/bun_arm64:1.0.0
+    image: kalpita888/bun:1.0.0                     # For arm64 system use kalpita888/bun_arm64:1.0.0 and for amd64 system use kalpita888/bun:1.0.0
     container_name: my-chat-agent
     init: true
     network_mode: host
