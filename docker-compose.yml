@@ -16,7 +16,7 @@ services:
 
   # Chromia node service
   chr-node:
-    image: kalpita888/chr-node:1.0.0
+    image: kalpita888/chromia-node:1.0.0
     container_name: my-chr-node
     init: true
     network_mode: host
