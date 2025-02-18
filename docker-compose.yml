@@ -8,7 +8,7 @@ services:
       POSTGRES_USER: postchain
     init: true
     network_mode: host
-    # restart: unless-stopped
+    restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postchain -d postchain -h localhost -p 5432"]
       interval: 10s
@@ -20,7 +20,7 @@ services:
     container_name: my-chr-node
     init: true
     network_mode: host
-    # restart: unless-stopped
+    restart: unless-stopped
     depends_on:
       - postgres
   
@@ -30,12 +30,10 @@ services:
     container_name: my-chat-agent
     init: true
     network_mode: host
-    # restart: unless-stopped
+    restart: unless-stopped
+    volumes:
+      - /init-params/:/init-params/
     env_file:
       - /init-params/bun/.env
     depends_on:
       - chr-node
-    healthcheck:
-      test: ["CMD-SHELL", "ls -alh /init-params/"]
-      interval: 10s
-      retries: 5
