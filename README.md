@@ -59,8 +59,8 @@ This repository demonstrates using Chromia to store AI Agent short-term and long
 
 9. Encode the `.env` file using the init-params-manager
    ```sh
-   ./init-params-manager/target/release/init-params-encoder --kms-endpoint http://v1.kms.box:1101 --pcr0 <pcr0> --pcr1 <pcr1> --pcr2 <pcr2> --init-params 'bun/.env:1:1:file:./.env'
    cd ..
+   ./init-params-manager/target/release/init-params-encoder --kms-endpoint http://v1.kms.box:1101 --pcr0 <pcr0> --pcr1 <pcr1> --pcr2 <pcr2> --init-params 'bun/.env:1:1:file:./.env'
    ```
  Make a note of the base64 encoded data from the outpupt.
 
