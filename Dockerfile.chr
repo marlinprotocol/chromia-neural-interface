@@ -1,7 +1,0 @@
-FROM registry.gitlab.com/chromaway/core-tools/chromia-cli/chr:latest
-
-WORKDIR /app
-
-COPY . .
-
-CMD [ "chr", "node", "start" ]
