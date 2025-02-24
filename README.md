@@ -11,7 +11,12 @@ This repository demonstrates using Chromia to store AI Agent short-term and long
 - [Generate key pair and lease a container](https://docs.chromia.com/intro/getting-started/testnet/getting-started#step-1-obtain-a-container-for-your-dapp)
 - [Deploy the dapp & obtain the dapp brid](https://docs.chromia.com/intro/getting-started/testnet/getting-started#step-2-deploy-your-dapp)
 
-**Note:** The default architecture for the code is amd64, for arm64 systems replace docker images with corresponding arm64 versions in the `docker-compose.yml` file.
+**Note:** Update the following docker images according to your system's architecture in the `docker-compose.yml`:
+  ```sh
+   # Bun service
+    bun:
+      image: kalpita888/bun:0.0.1                     # For arm64 system use kalpita888/bun_arm64:0.0.1 and for amd64 system use kalpita888/bun:0.0.1
+  ```
   
 ## Steps for local run
 1. Update the variables in the `.env` file.
