@@ -3,6 +3,7 @@ dotenv.config();
 
 import {
   blockchainIid,
+  blockchainRid,
   ChromiaDB,
   clientUrl,
   signatureProvider,
@@ -17,6 +18,7 @@ async function main() {
     clientUrl,
     signatureProvider,
     blockchainIid,
+    blockchainRid,
   });
   await db.init();
 

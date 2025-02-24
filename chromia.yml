@@ -8,3 +8,10 @@ database:
 test:
   modules:
     - test
+deployments:
+  testnet: # Deployment Target name
+    brid: x"6F1B061C633A992BF195850BF5AA1B6F887AEE01BB3F51251C230930FB792A92" # Blockchain RID for Testnet Directory Chain
+    url: https://node0.testnet.chromia.com:7740 # Target URL for one of the nodes in Testnet
+    container: e112cc4bc86a689dc97511c151e497cf214f8ae7e63cd2115d9d83cdacce69d8 # Replace with your container ID (Example - container: 15ddfcb25dcb43577ab311fe78aedab14fda25757c72a787420454728fb80304)
+    chains:
+      ai_agent_tutorial: x"DFAE66A8B991E281FE3950D498301BDCA19E60147E976D9454E6D6087F0A0458"

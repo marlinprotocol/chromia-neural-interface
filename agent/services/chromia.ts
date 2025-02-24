@@ -6,10 +6,11 @@ import {
 } from "postchain-client";
 import { v4 as uuid } from "uuid";
 
-export const clientUrl = "http://localhost:7740";
+export const clientUrl = process.env.CHROMIA_CLIENT_URL || "http://localhost:7740";
 export const blockchainIid = 0;
+export const blockchainRid = process.env.CHROMIA_BLOCKCHAIN_RID;
 export const signatureProvider = newSignatureProvider({
-  privKey: "01010101010101010101010101010101010101010101010101010101010101012",
+  privKey: process.env.CHROMIA_PRIV_KEY,
 });
 
 interface ChromiaDBConfig {

@@ -1,32 +1,7 @@
-services:
-  # Postgres service
-  postgres:
-    image: postgres:16.3-alpine3.20
-    environment:
-      POSTGRES_PASSWORD: postchain
-      POSTGRES_DB: postchain
-      POSTGRES_USER: postchain
-    init: true
-    network_mode: host
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postchain -d postchain -h localhost -p 5432"]
-      interval: 10s
-      retries: 3
-
-  # Chromia node service
-  chr-node:
-    image: kalpita888/chromia-node:1.0.0
-    container_name: my-chr-node
-    init: true
-    network_mode: host
-    restart: unless-stopped
-    depends_on:
-      - postgres
-  
+services:  
   # Bun service
   bun:
-    image: kalpita888/bun:1.0.0
+    image: kalpita888/bun:0.0.1
     container_name: my-chat-agent
     init: true
     network_mode: host
@@ -35,5 +10,3 @@ services:
       - /init-params/:/init-params/
     env_file:
       - /init-params/bun/.env
-    depends_on:
-      - chr-node
