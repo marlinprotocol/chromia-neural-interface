@@ -7,6 +7,7 @@ This repository demonstrates using Chromia to store AI Agent short-term and long
 
 ## Prerequisites
 - Install [Docker](https://docs.docker.com/engine/install/ubuntu/)
+- Enable [host networking](https://docs.docker.com/engine/network/drivers/host/#docker-desktop) on docker desktop
 - Fetch [Groq API key](https://console.groq.com/keys)
 - [Generate key pair and lease a container](https://docs.chromia.com/intro/getting-started/testnet/getting-started#step-1-obtain-a-container-for-your-dapp)
 - [Deploy the dapp & obtain the dapp brid](https://docs.chromia.com/intro/getting-started/testnet/getting-started#step-2-deploy-your-dapp)
