@@ -52,7 +52,7 @@ This repository demonstrates using Chromia to store AI Agent short-term and long
 
    # for arm64
    # replace <key> with private key of the wallet
-   oyster-cvm deploy --wallet-private-key 3d863a4053fafc9eed41c0c5022ba3850d8a4c2a8c1e1869e749d56288677184 --docker-compose ./docker-compose.yml --instance-type c6g.4xlarge --region ap-south-1 --operator 0xe10Fa12f580e660Ecd593Ea4119ceBC90509D642 --duration-in-minutes 20 --pcr-preset base/blue/v1.0.0/arm64 --init-params 'bun/.env:1:1:file:./.env'
+   oyster-cvm deploy --wallet-private-key <key> --docker-compose ./docker-compose.yml --instance-type c6g.4xlarge --region ap-south-1 --operator 0xe10Fa12f580e660Ecd593Ea4119ceBC90509D642 --duration-in-minutes 20 --pcr-preset base/blue/v1.0.0/arm64 --init-params 'bun/.env:1:1:file:./.env'
    ```
    Make a note of the IP from the output and navigate to http://IP:6060 and start chatting!
 
