@@ -35,7 +35,22 @@ This repository demonstrates using Chromia to store AI Agent short-term and long
 
 3. [Check your system requirements](https://docs.marlin.org/oyster/build-cvm/tutorials/)
 
-4. [Setup the development environment](https://docs.marlin.org/oyster/build-cvm/tutorials/setup)
+4. Install oyster-cvm and [Setup the development environment](https://docs.marlin.org/oyster/build-cvm/tutorials/setup#run-the-doctor-command)
+   ```sh 
+   # for amd64
+   sudo wget https://artifacts.marlin.org/oyster/binaries/oyster-cvm_v2.0.0_linux_amd64 -O /usr/local/bin/oyster-cvm
+
+   # for arm64
+   sudo wget https://artifacts.marlin.org/oyster/binaries/oyster-cvm_v2.0.0_linux_arm64 -O /usr/local/bin/oyster-cvm
+
+   # for darwin
+   sudo wget https://artifacts.marlin.org/oyster/binaries/oyster-cvm_v2.0.0_darwin_arm64 -O /usr/local/bin/oyster-cvm
+   ```
+   Make it executable by running the following:
+   ```sh
+   sudo chmod +x /usr/local/bin/oyster-cvm
+   oyster-cvm
+   ```
 
 5. Set up a wallet where you can export the private key. Deposit 0.001 ETH and 1 USDC to the wallet on the Arbitrum One network.
 
