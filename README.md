@@ -2,8 +2,7 @@
 
 This repository demonstrates using Chromia to store AI Agent short-term and long-term memories on chain. It also demonstrates a simple neural interface for interacting with the AI Agent.
 
-[![Chromia chat agent on Oyster TEE](https://res.cloudinary.com/marcomontalbano/image/upload/v1741892401/video_to_markdown/images/google-drive--1KqY1BXg69F9PNtkHNJONmFD0KBX9Ucxc-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://drive.google.com/file/d/1KqY1BXg69F9PNtkHNJONmFD0KBX9Ucxc/view?usp=sharing "Chromia chat agent on Oyster TEE")
-
+[![Chromia AI agent on Oyster](https://res.cloudinary.com/marcomontalbano/image/upload/v1742238254/video_to_markdown/images/google-drive--1gPEI9PtRptOj7zSK4d__MnPtUqpCpGXZ-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://drive.google.com/file/d/1gPEI9PtRptOj7zSK4d__MnPtUqpCpGXZ/view?usp=sharing "Chromia AI agent on Oyster")
 
 ## Prerequisites
 - For docker desktop, enable [host networking](https://docs.docker.com/engine/network/drivers/host/#docker-desktop)
