@@ -44,7 +44,7 @@ This repository demonstrates using Chromia to store AI Agent short-term and long
    sudo wget https://artifacts.marlin.org/oyster/binaries/oyster-cvm_v2.0.0_linux_arm64 -O /usr/local/bin/oyster-cvm
 
    # for darwin
-   sudo wget https://artifacts.marlin.org/oyster/binaries/oyster-cvm_v2.0.0_darwin_arm64 -O /usr/local/bin/oyster-cvm
+   sudo wget https://artifacts.marlin.org/oyster/binaries/oyster-cvm_v2.0.1_darwin_arm64 -O /usr/local/bin/oyster-cvm
    ```
    Make it executable by running the following:
    ```sh
@@ -58,11 +58,11 @@ This repository demonstrates using Chromia to store AI Agent short-term and long
    ```sh
    # for amd64
    # replace <key> with private key of the wallet
-   oyster-cvm deploy --wallet-private-key <key> --docker-compose ./docker-compose.yml --instance-type c6a.2xlarge --region ap-south-1 --operator 0xe10Fa12f580e660Ecd593Ea4119ceBC90509D642 --duration-in-minutes 20 --pcr-preset base/blue/v1.0.0/amd64 --init-params 'bun/.env:1:1:file:./.env'
+   oyster-cvm deploy --wallet-private-key <key> --docker-compose ./docker-compose.yml --instance-type c6a.2xlarge --region ap-south-1 --operator 0xe10Fa12f580e660Ecd593Ea4119ceBC90509D642 --duration-in-minutes 20 --pcr-preset base/blue/v1.0.0/amd64 --init-params 'bun/.env:1:1:file:./.env' --image-url https://artifacts.marlin.org/oyster/eifs/base-blue_v1.0.0_linux_amd64.eif
 
    # for arm64
    # replace <key> with private key of the wallet
-   oyster-cvm deploy --wallet-private-key <key> --docker-compose ./docker-compose.yml --instance-type c6g.2xlarge --region ap-south-1 --operator 0xe10Fa12f580e660Ecd593Ea4119ceBC90509D642 --duration-in-minutes 20 --pcr-preset base/blue/v1.0.0/arm64 --init-params 'bun/.env:1:1:file:./.env'
+   oyster-cvm deploy --wallet-private-key <key> --docker-compose ./docker-compose.yml --instance-type c6g.2xlarge --region ap-south-1 --operator 0xe10Fa12f580e660Ecd593Ea4119ceBC90509D642 --duration-in-minutes 20 --pcr-preset base/blue/v1.0.0/arm64 --init-params 'bun/.env:1:1:file:./.env' --image-url https://artifacts.marlin.org/oyster/eifs/base-blue_v1.0.0_linux_arm64.eif
    ```
    Make a note of the IP from the output and navigate to http://IP:6060 and start chatting!
 
