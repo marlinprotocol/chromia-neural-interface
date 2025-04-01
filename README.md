@@ -1,6 +1,6 @@
 # Chromia Neural Interface
 
-This repository demonstrates using Chromia to store AI Agent short-term and long-term memories on chain. It also demonstrates a simple neural interface for interacting with the AI Agent.
+This repository showcases how Chromia can store both short-term and long-term AI Agent memories on-chain. Additionally, it features a streamlined neural interface for seamless interaction with the AI Agent. The user interface is deployed on a decentralized cloud, secured within Trusted Execution Environments for enhanced privacy and security.
 
 [![Chromia AI agent on Oyster](https://res.cloudinary.com/marcomontalbano/image/upload/v1742238254/video_to_markdown/images/google-drive--1gPEI9PtRptOj7zSK4d__MnPtUqpCpGXZ-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://drive.google.com/file/d/1gPEI9PtRptOj7zSK4d__MnPtUqpCpGXZ/view?usp=sharing "Chromia AI agent on Oyster")
 
